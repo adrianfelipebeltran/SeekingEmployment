@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<!--
+-->
+<html>
+	<head>
+		<title>Generic - Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+img.resize {
+display: block;
+margin-left: auto;
+margin-right: auto;
+  max-width:400px;
+  max-height:400px;
+}
+
+.column {
+  float: left;
+  padding: 5px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+  max-width:25%;
+  max-height:25%;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width:35%;
+}
+
+p, ol {
+  text-align:left;
+  margin: 25px 50px 50px 125px;
+}
+h1 {
+  text-align:center;
+  margin: 25px 100px 25px 100px;
+  }
+</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="C:\Users\afbsl\Desktop\ADRIANWEB\Index.html#top">Top</a></li>
+					<li><a href="C:\Users\afbsl\Desktop\ADRIANWEB\Index.html#work">Work</a></li>
+					<li><a href="C:\Users\afbsl\Desktop\ADRIANWEB\Index.html#portfolio">Portfolio</a></li>
+					<li><a href="C:\Users\afbsl\Desktop\ADRIANWEB\Index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+				<!-- Header -->
+
+					<section id="main" class="wrapperstyle1">
+						<div class="inner"> <br> <br>
+							<h1 class="major" text-align:center;>ABAQUS Project 00 Notes</h1> <br> <br> <br>
+							
+							<img src="images/pic04.jpg" alt="" class="center" width:40px; height:40px> <br><br>
+
+					</section>
+					</div>
+					<section id="main" class="wrapper">
+
+<p>Rectangular beam with 500mm x 300mm cross sectional area. k=50MPa</p>
+<p>Unitless interface requires consistency in units. We will use SI for simplicity.</p>
+<ol>
+<li>Select Parts. Select 2D Planar.</li>
+<li>Name: beam</li>
+<li>Type: Deformable</li>
+<li>Base Feature: Wire</li>
+<li>Approximate Size: 10</li>
+<li>Select Create Line. Create line 5 long. Select done.</li>
+</ol>
+
+	<div class= "row"> <div class= "column"> <img src="images/P1I1.jpg" alt="" width="300" height="300"> </div>
+	<div class= "column"> <img src="images/P1I2.jpg" alt="" width="300" height="300"> </div> </div>
+
+<ol start="7">
+<li>Parts&gt;Beam&gt;Section Assignments&gt;Left click beam&gt;Name Set Beam&gt;</li>
+<li>Name Section: Beam. Select the line created previously to highlight red. Select Done.</li>
+<li>Select Create Section Icon. Name Beam-Section.</li>
+<li>Select Create Beam Profile Icon: Rectangular. Name: rect</li>
+<li>For 300mm by 500mm enter 0.3 and 0.5</li>	
+</ol>
+	<div class= "row"> <div class= "column"> <img src="images/P1I3.png" alt="" width="300" height="300"> </div>
+	<div class= "column"> <img src="images/P1I4.jpg" alt="" width="300" height="300"> </div> </div>
+<ol start="12">
+<li>Select Create Material Icon</li>
+<li>Mechanical&gt;Elasticity&gt;Elastic</li>
+<li>Youngs Mod: 210e9</li>
+<li>Poisson: 0.3 (no difference will be made in 2d model but still needs to be filled)</li>
+<li>OK. OK. OK.</li>
+	<br><br><img src="images/P1I5.png" alt="" class="resize"><br><br>
+<li>Select Assign Beam Orientation. Left click line or select sets and select beam set made in step 7. May manually input vector but 0,0,-1 suffices. To accept, click enter and OK.</li>
+</ol>
+	<img src="images/P1I6.png" alt="" class="resize"><br>
+<ol start="18">
+<li>To view beam: View&gt;Part Display Options&gt; Render Beam Profile. This is just an exercise and one may return the beam to the default viewing method after finished</li>
+</ol>
+	<img src="images/P1I7.png" alt="" class="resize"><br>
+<ol start="19">
+<li>For springs: Parts&gt;Engineering Features&gt;Springs/Dashpots</li>
+<li>Select Connect Points to Ground (Standard)</li>
+<li>Hold shift and select both ends of line. Select OK and Done or hit Enter. Select Degree of Freedom: 2. 1 DOF for axial forces, 2 for bending, and 6 for rotational. Insert 50e6 for k=50MPa</li>
+<li>Engineering Features&gt;Mesh&gt;Seed Part</li>
+<li>The standard mesh size works fine for this exercise. Finer the mesh, the longer the calculation takes to run but the higher quality the results</li>
+</ol>
+	<img src="images/P1I8.png" alt="" class="resize"><br>
+<ol start="24">
+<li>Select Mesh Part. Yes.</li>
+</ol>
+	<img src="images/P1I9.png" alt="" class="resize"><br>
+<ol start="25">
+<li>One may choose between the machine code formulation (Shear Flexible) or Euler&rsquo;s formulation (Cubic Formulation) in Mesh&gt;ElementType&gt;SelectBeam&gt;SelectDone</li>
+<li>Assembly&gt;Instances&gt;Select All Relevant Parts&gt;Select Apply&gt;Select OK</li>
+</ol>
+	<img src="images/P1I10.png" alt="" class="resize"><br>
+<ol start="27">
+<li>Select Steps (1). Load. Static (General). OK in next window.</li>
+</ol>
+	<img src="images/P1I11.png" alt="" class="resize"><br>
+<ol start="28">
+<li>As per diagram, we establish an analytical field for later use. Input equation and continue.</li>
+</ol>
+	<img src="images/P1I12.png" alt="" class="resize"><br>
+<ol start="29">
+<li>Select Load. Line Load. Select the AnalyticalField we just created. In the X-Direction we do not have load. 0. We have a Negative Y-Direction load, hence the -1. 0 for Z-Direciton.</li>
+</ol>
+	<img src="images/P1I13.png" alt="" class="resize"><br><br>
+	<img src="images/P1I14.png" alt="" class="center" width="900"><br><br>
+
+<ol start="30">
+<li>Double Click Jobs. Select OK for default name and default settings afterwards.</li>
+<li>Add Field Output Request. Double Click F-Output-1 and input NFORSCO by searching through forces.</li>
+</ol>
+	<img src="images/P1I15.png" alt="" class="resize"><br>
+<ol start="32">
+<li>Right click created job. Select Submit.</li>
+</ol>
+	<img src="images/P1I16.png" alt="" class="resize"><br>
+<ol start="33">
+<li>NFORSCO1 is Axial Force
+</li>
+<li>NFORCSO2 is Shear Force</li>
+<li>NFORCSO6 is Moment</li>
+<li>To plot results onto undeformed beam, long click on icon</li>
+</ol>
+	<img src="images/P1I17.png" alt="" class="resize">
+
+</article>
+</div>
+</section
+			<!-- Contact -->
+			<article id="contact" class="wrapper style4">
+				<div class="container medium">
+					<header>
+						<h2>Contact Me!</h2>
+						<p>
+						</p>
+					</header>
+					<div class="row">
+						<div class="col-12">
+							<form method="post" action="#">
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+									<div class="col-6 col-12-small">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+									<div class="col-12">
+										<input type="text" name="subject" id="subject" placeholder="Subject" />
+									</div>
+									<div class="col-12">
+										<textarea name="message" id="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" /></li>
+											<li><input type="reset" value="Clear Form" class="alt" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-12">
+							<hr />
+							<h3>Find me on ...</h3>
+							<ul class="social">
+								<li><a href="https://www.linkedin.com/in/adrian-beltran-0a9a91154/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<!--
+								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
+								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
+								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
+								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
+								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
+								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
+								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
+								-->
+							</ul>
+							<hr />
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Adrian Felipe Beltran. All rights reserved.</li>
+						</ul>
+					</footer>
+				</div>
+				</article>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
