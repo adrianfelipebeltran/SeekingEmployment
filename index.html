@@ -121,38 +121,31 @@
 			<article id="contact" class="wrapper style4">
 				<div class="container medium">
 					<header>
-						<h2>Ask Me Anything :)</h2>
+						<h2>Contact Me!</h2>
 					</header>
-					<div class="row">
-						<div class="col-12">
-							<form method="post" action="#">
-								<div class="row">
-									<div class="col-6 col-12-small">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="col-6 col-12-small">
-										<input type="text" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="col-12">
-										<input type="text" name="subject" id="subject" placeholder="Subject" />
-									</div>
-									<div class="col-12">
-										<textarea name="message" id="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" /></li>
-											<li><input type="reset" value="Clear Form" class="alt" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
+					<form
+  action="https://formspree.io/f/xjvpkdbb"
+  method="POST"
+>
+  <label>
+    <input type="text" name="_replyto" id="Your email" placeholder="Your email">
+  </label>
+  <label>
+    <textarea name="message" id="message" placeholder="Your Message"></textarea>
+  </label>
+
+  <!-- your other form fields go here -->
+	<br>
+  <button type="submit">Send</button>
+</form>
 						</div>
 						<div class="col-12">
 							<hr />
 							<h3>Find me on ...</h3>
 							<ul class="social">
 								<li><a href="https://www.linkedin.com/in/adrian-beltran-0a9a91154/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
+
 								<!--
 								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
 								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
